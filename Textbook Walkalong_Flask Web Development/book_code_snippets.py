@@ -35,6 +35,10 @@ def get_user(id):
     return '<h1>Hello, {}</h1>'.format(user.name)
 
 
+# Chapter 3 - Templates
+
+
+
 
 
 

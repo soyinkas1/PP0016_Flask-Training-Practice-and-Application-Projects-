@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
-from datetime import datetime
+from datetime import datetime, UTC
 
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ moment = Moment(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', current_time=datetime.now(UTC))
 
 
 @app.route('/user/<name>')
@@ -26,7 +26,7 @@ def page_not_found(e):
 
 @app.errorhandler(500)
 def page_not_found(e):
-    return render_template('500.html'), 404
+    return render_template('500.html'), 500
 
 @app.route('/user1/<name>')
 def user1(name):

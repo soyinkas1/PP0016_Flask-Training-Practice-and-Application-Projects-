@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 Bootstrap = Bootstrap(app)
 moment = Moment(app)
+app.config['SECRET KEY'] = 'soyinka'
 
 @app.route('/')
 def index():

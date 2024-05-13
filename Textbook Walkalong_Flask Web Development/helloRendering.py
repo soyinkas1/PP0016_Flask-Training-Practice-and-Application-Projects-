@@ -4,17 +4,18 @@ from flask_moment import Moment
 from datetime import datetime, UTC
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, InputRequired
 from flask_migrate import migrate
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = "kokoroasiri"
 Bootstrap = Bootstrap(app)
 moment = Moment(app)
-app.config['SECRET KEY'] = 'soyinka'
+
+
 
 class NameForm(FlaskForm):
-    name = StringField("What is your name", validators=[DataRequired()])
+    name = StringField("What is your name", validators=[InputRequired()])
     submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET', 'POST'])

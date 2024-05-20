@@ -6,6 +6,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, InputRequired
 from flask_migrate import migrate
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "kokoroasiri"

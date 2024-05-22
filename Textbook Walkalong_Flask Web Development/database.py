@@ -1,12 +1,15 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+from dotenv import load_dotenv
+
+load_dotenv()
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
+database = os.getenv('DATABASE')
+app.config['SQLALCHEMY_DATABASE_URI'] = database
 
-app.config['SQLALCHEMY_DATABASE_URI'] =\
-'mysql://root:Olatunde1$@localhost/pet_shop'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)

@@ -5,7 +5,7 @@ from datetime import datetime, UTC
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, InputRequired
-from flask_migrate import migrate
+from flask_migrate import Migrate
 import os
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -23,6 +23,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Bootstrap = Bootstrap(app)
 moment = Moment(app)
+migrate = Migrate(app, db)
 
 class Role(db.Model):
     __tablename__ = 'roles'
